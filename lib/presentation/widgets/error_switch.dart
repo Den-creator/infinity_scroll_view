@@ -5,6 +5,8 @@ import '../../logic/cubit/users_cubit.dart';
 import '../../constants.dart';
 
 class ErrorSwitch extends StatefulWidget {
+  const ErrorSwitch({Key? key}) : super(key: key);
+
   @override
   _ErrorSwitchState createState() => _ErrorSwitchState();
 }

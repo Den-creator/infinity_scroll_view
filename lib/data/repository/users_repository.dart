@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import '../data_provider/go_rest_api.dart';
-import '../models/user.dart';
+import '../model/user.dart';
 
 class UsersRepository {
   final _api = GoRestAPI();

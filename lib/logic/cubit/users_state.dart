@@ -21,8 +21,8 @@ class UsersIsLoading extends UsersState {
 class UsersLoaded extends UsersState {
   const UsersLoaded(
     List<User> users, {
-    bool haveNoMoreData = false,
-  }) : super(users, haveNoMoreData);
+    bool noMoreData = false,
+  }) : super(users, noMoreData);
 }
 
 class UsersFetchError extends UsersState {

@@ -17,7 +17,6 @@ class GoRestAPI {
         throw Exception('Status code - ${response.statusCode}');
       }
     } catch (e) {
-      print(e);
       throw e;
     }
   }

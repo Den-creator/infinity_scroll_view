@@ -9,6 +9,8 @@ import '../widgets/error_switch.dart';
 import '../widgets/add_new_user_sheet.dart';
 
 class MyHomePage extends StatelessWidget {
+  const MyHomePage();
+
   @override
   Widget build(BuildContext context) {
     final cubit = context.read<UsersCubit>();
@@ -23,23 +25,21 @@ class MyHomePage extends StatelessWidget {
             tooltip: 'Refresh list',
             onPressed: () => cubit.refreshUsers(),
           ),
-          ErrorSwitch(),
+          const ErrorSwitch(),
           const SizedBox(width: 10)
         ],
       ),
-      body: UsersListView(),
+      body: const UsersListView(),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
         onPressed: () {
           showModalBottomSheet(
             isScrollControlled: true,
             context: context,
-            builder: (_) {
-              return BlocProvider.value(
-                value: cubit,
-                child: AddNewUserSheet(),
-              );
-            },
+            builder: (_) => BlocProvider.value(
+              value: cubit,
+              child: AddNewUserSheet(),
+            ),
           );
         },
       ),

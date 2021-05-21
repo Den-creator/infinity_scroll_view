@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../data/models/user.dart';
+import '../../data/model/user.dart';
 
 class GenderCheckboxes extends StatefulWidget {
   final Function(Gender) updateGender;

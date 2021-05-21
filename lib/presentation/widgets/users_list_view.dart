@@ -6,6 +6,8 @@ import 'user_list_tile.dart';
 import 'footer_spinner.dart';
 
 class UsersListView extends StatefulWidget {
+  const UsersListView();
+
   @override
   _UsersListViewState createState() => _UsersListViewState();
 }
@@ -58,7 +60,7 @@ class _UsersListViewState extends State<UsersListView> {
                 : state.users.length + 1,
             itemBuilder: (_, index) {
               if (index >= state.users.length) {
-                return FooterSpinner();
+                return const FooterSpinner();
               }
 
               return UserListTile(user: state.users[index]);

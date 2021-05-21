@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-import '../../data/models/user.dart';
+import '../../data/model/user.dart';
 import '../../constants.dart';
 
 class UserListTile extends StatelessWidget {
   final User user;
 
-  UserListTile({required this.user});
+  const UserListTile({required this.user});
 
   @override
   Widget build(BuildContext context) {

@@ -3,12 +3,13 @@ import 'package:uuid/uuid.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../presentation/widgets/gender_checkboxes.dart';
-import '../../data/models/user.dart';
+import '../../data/model/user.dart';
 import '../../logic/cubit/users_cubit.dart';
 
 // ignore: must_be_immutable
 class AddNewUserSheet extends StatelessWidget {
-  static const textStyle = TextStyle(fontWeight: FontWeight.bold, fontSize: 16);
+  static const _textStyle =
+      TextStyle(fontWeight: FontWeight.bold, fontSize: 16);
 
   var name = '';
   var email = '';
@@ -20,7 +21,7 @@ class AddNewUserSheet extends StatelessWidget {
       children: [
         Text(
           title,
-          style: textStyle,
+          style: _textStyle,
         ),
         TextField(onChanged: onChanged),
         const SizedBox(height: 20)
@@ -54,7 +55,7 @@ class AddNewUserSheet extends StatelessWidget {
           children: [
             buildWidget('Name', (value) => name = value),
             buildWidget('Email', (value) => email = value),
-            const Text('Gender', style: textStyle),
+            const Text('Gender', style: _textStyle),
             const SizedBox(height: 10),
             GenderCheckboxes((gender) => selectedGender = gender),
             const SizedBox(height: 20),

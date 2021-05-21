@@ -1,14 +1,13 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 
-import '../../data/repository/users_repository.dart';
-import '../../data/models/user.dart';
+import '../../data/model/user.dart';
+import '../interactor.dart';
 
 part 'users_state.dart';
 
 class UsersCubit extends Cubit<UsersState> {
-  static const _itemsPerPage = 20; // server configuration
-  final _repository = UsersRepository();
+  final _interactor = Interactor();
 
   UsersCubit() : super(UsersInitial([]));
 
@@ -22,14 +21,15 @@ class UsersCubit extends Cubit<UsersState> {
     emit(UsersIsLoading(state.users));
 
     try {
-      final page = state.users.length / _itemsPerPage + 1;
-      final users = await _repository.getUsers(page: page.toInt());
+      final users =
+          await _interactor.getUsers(currentUsersCount: state.users.length);
 
       emit(UsersLoaded(
         state.users + users,
-        haveNoMoreData: users.isEmpty,
+        noMoreData: users.isEmpty,
       ));
-    } catch (_) {
+    } catch (e) {
+      print(e);
       emit(UsersFetchError(state.users));
     }
   }
